@@ -11,7 +11,7 @@ sequelize.sync();
 
 app.use(express.json());
 
-app.use('./user', user);
+app.use('/user', user);
 app.use('/product', product);
 
 app.listen(3000, function(){
