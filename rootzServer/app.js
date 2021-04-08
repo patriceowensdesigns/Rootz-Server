@@ -1,11 +1,12 @@
 require("dotenv").config();
-let express = require('express');
-let app = express();
-let sequelize = require('./db');
+const express = require('express');
+const app = express();
+const sequelize = require('./db');
 
 
-let user = require('./controllers/userController');
-let product = require('./controllers/productController');
+const user = require('./controllers/userController');
+const product = require('./controllers/productController');
+const cart = require('./controllers/cartController');
 
 sequelize.sync();
 //sequelize.sync({force: true})
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use('/user', user);
 
 app.use('/product', product);
+
+app.use('/cart', cart);
 
 app.listen(3000, function(){
     console.log('App is listening on **PORT 3000**');
