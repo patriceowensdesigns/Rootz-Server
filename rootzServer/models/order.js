@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define('order', {
-        user_id: {
-            type: DataTypes.INTEGER
-        },
         email: {
             type: DataTypes.STRING,
         },
@@ -13,13 +10,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         productName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         retailPrice: {
             type: DataTypes.DECIMAL,

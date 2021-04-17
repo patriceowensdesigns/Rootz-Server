@@ -10,7 +10,7 @@ const cart = require('./controllers/cartController');
 const order = require('./controllers/orderController');
 
 sequelize.sync();
-//sequelize.sync({force: true})
+// sequelize.sync({force: true})
 
 app.use(express.json());
 

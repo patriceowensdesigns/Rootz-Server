@@ -5,11 +5,11 @@ const Cart = require('../db').import('../models/cart');
 
 router.post("/add", validateSession, (req, res) => {
     const cartEntry = {
-        user_id: req.user.id,
+        userId: req.user.id,
         scn: req.body.cart.scn,
         productName: req.body.cart.productName,
         image: req.body.cart.image,
-        retailPrice: req.body.cart.retailPrice
+        retailPrice: req.body.cart.retailPrice,
     };
     Cart.create(cartEntry)
         .then((cart) => res.status(200).json(cart))
@@ -17,16 +17,16 @@ router.post("/add", validateSession, (req, res) => {
 });
 
 router.get("/mine", validateSession, (req, res) => {
-    let userid = req.user.id;
+    let userId = req.user.id;
     Cart.findAll({
-        where: { user_id: userid },
+        where: { userId: userId },
     })
     .then((cart) => res.status(200).json(cart))
     .catch((err) => res.status(500).json({ error: err }));
 });
 
 router.delete("/delete/:id", validateSession, function (req, res) {
-    const query = { where: { id: req.params.id, user_id: req.user.id } };
+    const query = { where: { id: req.params.id, userId: req.user.id } };
   
     Cart.destroy(query)
       .then(() => res.status(200).json({ message: "Item Removed from cart" }))

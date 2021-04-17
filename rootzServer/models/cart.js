@@ -1,22 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
     const Cart = sequelize.define('cart', {
-        user_id: {
-            type: DataTypes.INTEGER
-        },
         scn: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            // unique: true
         },
         productName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         retailPrice: {
             type: DataTypes.DECIMAL,

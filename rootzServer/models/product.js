@@ -8,12 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         productName: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         image: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         retailPrice: {
             type: DataTypes.DECIMAL,
