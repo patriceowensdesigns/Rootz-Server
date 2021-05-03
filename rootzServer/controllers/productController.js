@@ -19,7 +19,13 @@ router.post('/create', validateSession, (req, res) => {
     Product.create(productEntry)
         .then(product => res.status(200).json(product))
         .catch(err => res.status(500).json({ error: err }))
-})
+});
+
+router.get("/", validateSession, (req, res) => {
+    Product.findAll()
+        .then(order => res.status(200).json(order))
+        .catch(err => res.status(500).json({ error: err }))
+});
 
 module.exports = router
 
