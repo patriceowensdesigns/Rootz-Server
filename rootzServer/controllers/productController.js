@@ -23,7 +23,7 @@ router.post('/create', validateSession, (req, res) => {
 
 router.get("/", validateSession, (req, res) => {
     Product.findAll()
-        .then(order => res.status(200).json(order))
+        .then(product => res.status(200).json(product))
         .catch(err => res.status(500).json({ error: err }))
 });
 
