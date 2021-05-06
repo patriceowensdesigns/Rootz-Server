@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         retailPrice: {
             type: DataTypes.DECIMAL,
             allowNull: false
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1
         }
     })
     return Cart;
